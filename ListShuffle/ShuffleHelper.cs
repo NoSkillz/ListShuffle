@@ -9,7 +9,7 @@ namespace ListShuffle
 {
     public static class ShuffleHelper
     {
-        public static ICollection<string> FarroShuffle(ICollection<string> list)
+        public static IList<string> FarroShuffle(IList<string> list)
         {
             if (list.Count == 0)
                 throw new InvalidOperationException();
@@ -24,12 +24,12 @@ namespace ListShuffle
                 firstHalfSize = list.Count / 2 + 1;
 
             //Split in two halfs
-            ICollection<string> firstHalf = list.Take(firstHalfSize).ToList();
-            ICollection<string> secondHalf = list.Skip(firstHalfSize).Take(list.Count - firstHalfSize).ToList();
+            IList<string> firstHalf = list.Take(firstHalfSize).ToList();
+            IList<string> secondHalf = list.Skip(firstHalfSize).Take(list.Count - firstHalfSize).ToList();
 
 
 
-            ICollection<string> shuffledList = new List<string>();
+            IList<string> shuffledList = new List<string>();
 
             for (int i = 0, skip = 0; i < items; i = i + 2, skip++)
             {
