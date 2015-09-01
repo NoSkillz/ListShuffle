@@ -12,7 +12,7 @@ namespace Tests
     {
 
         [TestMethod]
-        public void CanFarroShuffle()
+        public void CanFaroShuffle()
         {
             IList<string> input = new List<string>()
             {
@@ -34,13 +34,13 @@ namespace Tests
                 "u",
             };
 
-            IList<string> result = ShuffleHelper.FarroShuffle(input);
+            IList<string> result = Shuffler.FaroShuffle(input);
 
             Assert.AreNotEqual(true, Enumerable.SequenceEqual(input, result));
         }
 
         [TestMethod]
-        public void ContinuousFarroShuffleReturnsInitialList()
+        public void ContinuousFaroShuffleReturnsInitialList()
         {
             // Shuffling 52 items 8 times should get us the same order as the initial list
 
@@ -56,9 +56,9 @@ namespace Tests
             for (int i = 0; i < 8; i++)
             {
                 if (i == 0)
-                    result = ShuffleHelper.FarroShuffle(input);
+                    result = Shuffler.FaroShuffle(input);
                 else
-                    result = ShuffleHelper.FarroShuffle(result);
+                    result = Shuffler.FaroShuffle(result);
             }
 
             Assert.AreEqual(true, Enumerable.SequenceEqual(input, result));

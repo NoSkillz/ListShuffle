@@ -7,9 +7,15 @@ using System.Threading.Tasks;
 
 namespace ListShuffle
 {
-    public static class ShuffleHelper
+    public static class Shuffler
     {
-        public static IList<string> FarroShuffle(IList<string> list)
+        /// <summary>
+        /// Returns a Faro shuffled list.
+        /// The initial list is split in half. A new list is created by alternately adding each item from the half-lists to it.
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
+        public static IList<string> FaroShuffle(IList<string> list)
         {
             if (list.Count == 0)
                 throw new InvalidOperationException();
