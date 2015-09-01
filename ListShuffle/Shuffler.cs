@@ -18,7 +18,7 @@ namespace ListShuffle
         public static IList<string> FaroShuffle(IList<string> list)
         {
             if (list.Count == 0)
-                throw new InvalidOperationException();
+                return null;
 
             var items = list.Count;
 
