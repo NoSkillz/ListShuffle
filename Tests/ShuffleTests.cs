@@ -10,11 +10,8 @@ namespace Tests
     [TestClass]
     public class ShuffleTests
     {
-
-        [TestMethod]
-        public void CanFaroShuffle()
-        {
-            IList<string> input = new List<string>()
+        // default list
+        IList<string> defaultList = new List<string>()
             {
                 "apple",
                 "blackberry",
@@ -34,9 +31,12 @@ namespace Tests
                 "u",
             };
 
-            IList<string> result = Shuffler.FaroShuffle(input);
+        [TestMethod]
+        public void CanFaroShuffle()
+        {
+            IList<string> result = Shuffler.FaroShuffle(defaultList);
 
-            Assert.AreNotEqual(true, Enumerable.SequenceEqual(input, result));
+            Assert.AreNotEqual(true, Enumerable.SequenceEqual(defaultList, result));
         }
 
         [TestMethod]
@@ -62,6 +62,14 @@ namespace Tests
             }
 
             Assert.AreEqual(true, Enumerable.SequenceEqual(input, result));
+        }
+
+        [TestMethod]
+        public void CanKnuthShuffle()
+        {
+            IList<string> result = Shuffler.KnuthShuffle(defaultList);
+
+            Assert.AreNotEqual(true, Enumerable.SequenceEqual(defaultList, result));
         }
     }
 }
