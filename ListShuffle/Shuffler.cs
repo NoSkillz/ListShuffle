@@ -91,5 +91,16 @@ namespace ListShuffle
             list[secondIndex] = tempElement;
             return list;
         }
+
+        public static IList<string> RandomShuffle(IList<string> list)
+        {
+            Random random = new Random();
+            int result = random.Next(2);
+
+            if (result == 0)
+                return FaroShuffle(list);
+            else
+                return KnuthShuffle(list);
+        }
     }
 }
