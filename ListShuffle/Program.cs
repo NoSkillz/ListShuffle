@@ -4,6 +4,7 @@ using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ListShuffle;
 
 namespace ListShuffle
 {
@@ -11,10 +12,19 @@ namespace ListShuffle
     {
         static void Main(string[] args)
         {
-            bool done = false;
-            IList<string> list = new List<string>();
+            var result = GetList().Shuffle();
 
+            DisplayResult(result);
+
+            Console.ReadKey();
+        }
+
+        static IList<string> GetList()
+        {
             Console.WriteLine("Please provide the items to be shuffled. Type \"done\" to finish.");
+
+            IList<string> list = new List<string>();
+            bool done = false;
 
             while (!done)
             {
@@ -24,15 +34,15 @@ namespace ListShuffle
                 else
                     list.Add(input);
             }
+            return list;
+        }
 
-            IList<string> result = Shuffler.RandomShuffle(list);
-
-            foreach (var item in result)
+        static void DisplayResult(IList<string> list)
+        {
+            foreach (var item in list)
             {
                 Console.WriteLine(item);
             }
-
-            Console.ReadKey();
         }
     }
 }

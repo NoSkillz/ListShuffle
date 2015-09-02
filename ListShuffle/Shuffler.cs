@@ -102,5 +102,10 @@ namespace ListShuffle
             else
                 return KnuthShuffle(list);
         }
+
+        public static IList<string> Shuffle(this IList<string> list)
+        {
+            return RandomShuffle(list);
+        }
     }
 }
